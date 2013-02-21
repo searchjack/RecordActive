@@ -4,3 +4,4 @@ WebContent/WEB-INF/classes/
 .project
 .settings/
 *.class
+bin/
