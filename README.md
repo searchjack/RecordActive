@@ -6,5 +6,5 @@
 /*
 需要 servlet-api.jar <br>
 使用<br>
-\t	请参照 test/ 目录的测试类
+	请参照 test/ 目录的测试类
 */
