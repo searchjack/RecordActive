@@ -85,6 +85,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 //		A - 65
 //		Z - 90
 		StringBuffer tab = new StringBuffer();
+//		System.out.println(getShortName(this.getClass().getName()).toCharArray());
 		char[] beanNameArr = getShortName(this.getClass().getName()).toCharArray();
 		Boolean isTheFirstCh = true;
 		for(Character c : beanNameArr) {
@@ -479,7 +480,6 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 			DBkit.pstmtSetValue(pstmt, val);
 			rtn = pstmt.executeUpdate();
 		} catch (SQLException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		return rtn;

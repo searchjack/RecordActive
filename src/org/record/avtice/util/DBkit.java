@@ -50,15 +50,15 @@ public class DBkit {
 	}
 	
 	public static void pstmtSetValue(PreparedStatement pstmt, List<Object> sql_key) {
-		int index=0;
+		int index = 1;
 		for(Object key : sql_key) {
-			System.out.print("k -v : "+ index +" - "+ key);
+			System.out.println("k - v : "+ index +" - "+ key);
 			try {
-				pstmt.setObject(++index, key);
+				pstmt.setObject(index, key);
 			} catch (SQLException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
+			index ++ ;
 		}		
 	}
 	

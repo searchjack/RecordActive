@@ -35,7 +35,7 @@ public class BlogArticleTest {
 	// save
 	@Test
 	public void save() {
-		BlgArticle ba = new BlgArticle(1, 12, "title", "content");
+		BlgArticle ba = new BlgArticle(45, 12, "title-id", "content-val");
 		System.out.println("resutl: "+ ba.save(ba));
 	}
 	@Test
@@ -66,7 +66,7 @@ public class BlogArticleTest {
 	}
 	@Test
 	public void delete2(){
-		int rtn = BlgArticle.blgArticle.delete("id", "3");
+		int rtn = BlgArticle.blgArticle.delete("id", "8");
 		System.out.println("result : "+ rtn);
 	}
 	@Test
@@ -117,7 +117,7 @@ public class BlogArticleTest {
 //		BlgArticle ba = (BlgArticle)BlgArticle.blgArticle.get(7);
 		System.out.println(
 				"\r - "  +ba.getId() +
-				"\r - " +ba.getSub_Id()+
+				"\r - " +ba.getSubId()+
 				"\r - " +ba.getTitle()+
 				"\r - " +ba.getContent());
 	}
@@ -126,7 +126,7 @@ public class BlogArticleTest {
 		List<BlgArticle> bas = BlgArticle.blgArticle.get("id", 8);
 		for(BlgArticle ba : bas) {
 			System.out.println(ba.getId() +
-					"\r" +ba.getSub_Id()+
+					"\r" +ba.getSubId()+
 					"\r" +ba.getTitle()+
 					"\r" +ba.getContent());
 		}
@@ -135,7 +135,7 @@ public class BlogArticleTest {
 	public void get2() {
 		List<BlgArticle> beans = BlgArticle.blgArticle.get();
 		for(BlgArticle b : beans) {
-			System.out.println(b.getId() +" - "+ b.getSub_Id() +" - "+ b.getTitle() +" - "+ b.getContent());
+			System.out.println(b.getId() +" - "+ b.getSubId() +" - "+ b.getTitle() +" - "+ b.getContent());
 		}
 	}
 	@Test
@@ -143,7 +143,7 @@ public class BlogArticleTest {
 		Set<Object> params = new HashSet<Object>();
 		List<BlgArticle> beans = BlgArticle.blgArticle.get("id", params);
 		for(BlgArticle b : beans) {
-			System.out.println(b.getId() +" - "+ b.getSub_Id() +" - "+ b.getTitle() +" - "+ b.getContent());
+			System.out.println(b.getId() +" - "+ b.getSubId() +" - "+ b.getTitle() +" - "+ b.getContent());
 		}
 	}
 	@Test
@@ -154,14 +154,14 @@ public class BlogArticleTest {
 		params.put("title", "title");
 		List<BlgArticle> beans = BlgArticle.blgArticle.get(params);
 		for(BlgArticle b : beans) {
-			System.out.println(b.getId() +" - "+ b.getSub_Id() +" - "+ b.getTitle() +" - "+ b.getContent());
+			System.out.println(b.getId() +" - "+ b.getSubId() +" - "+ b.getTitle() +" - "+ b.getContent());
 		}
 	}
 	@Test
 	public void get5() {
-		List<BlgArticle> beans = BlgArticle.blgArticle.get(7, 1);  // ('启起', '偏移量')
+		List<BlgArticle> beans = BlgArticle.blgArticle.get(7, 1);  // ('鍚捣', '鍋忕Щ閲�)
 		for(BlgArticle b : beans) {
-			System.out.println(b.getId() +" - "+ b.getSub_Id() +" - "+ b.getTitle() +" - "+ b.getContent());
+			System.out.println(b.getId() +" - "+ b.getSubId() +" - "+ b.getTitle() +" - "+ b.getContent());
 		}
 	}
 	

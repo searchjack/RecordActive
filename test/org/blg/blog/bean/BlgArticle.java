@@ -10,13 +10,14 @@ import org.record.avtice.RecordActive;
 
 public class BlgArticle extends RecordActive<BlgArticle> {
 
-	public static BlgArticle DAO = null;
+//	public static BlgArticle DAO = null;
+	public static BlgArticle DAO = new BlgArticle();
 
 	public static BlgArticle blgArticle = new BlgArticle();
 
 	private Integer id;
 
-	private Integer sub_Id;
+	private Integer subId;
 
 	private String title;
 	
@@ -26,13 +27,13 @@ public class BlgArticle extends RecordActive<BlgArticle> {
 	
 	public BlgArticle() {
 		super();
-		DAO = new BlgArticle();
+//		DAO = new BlgArticle();
 		// TODO Auto-generated constructor stub
 	}
 	public BlgArticle(Integer id, Integer sub_Id, String title, String content) {
 		super();
 		this.id = id;
-		this.sub_Id = sub_Id;
+		this.subId = sub_Id;
 		this.title = title;
 		this.content = content;
 	}
@@ -49,11 +50,11 @@ public class BlgArticle extends RecordActive<BlgArticle> {
 	public void setId(Integer id) {
 		this.id = id;
 	}
-	public Integer getSub_Id() {
-		return sub_Id;
+	public Integer getSubId() {
+		return subId;
 	}
-	public void setSub_Id(Integer sub_Id) {
-		this.sub_Id = sub_Id;
+	public void setSubId(Integer sub_Id) {
+		this.subId = sub_Id;
 	}
 	public String getTitle() {
 		return title;
