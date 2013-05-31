@@ -10,6 +10,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 public class BeanInjector {
+	@SuppressWarnings("unused")
 	public static <T> T injectActiveRecord(Class<T> modelClass, HttpServletRequest req, HttpServletResponse res) {
 
 //		System.out.println("*** "+ req);

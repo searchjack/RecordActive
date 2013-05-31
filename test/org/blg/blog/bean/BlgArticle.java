@@ -1,6 +1,6 @@
 package org.blg.blog.bean;
 
-import org.record.avtice.RecordActive;
+import org.record.avtice.ActiveRecord;
 
 /**
  * BlgArticle entity.
@@ -8,7 +8,7 @@ import org.record.avtice.RecordActive;
  * @author MyEclipse Persistence Tools
  */
 
-public class BlgArticle extends RecordActive<BlgArticle> {
+public class BlgArticle extends ActiveRecord<BlgArticle> {
 
 //	public static BlgArticle DAO = null;
 	public static BlgArticle DAO = new BlgArticle();

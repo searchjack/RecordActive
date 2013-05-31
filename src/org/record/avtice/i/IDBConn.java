@@ -1,5 +1,10 @@
 package org.record.avtice.i;
 
+/**
+ * if u nedd, u can load this info from .properties
+ * @author searchjack
+ *
+ */
 public interface IDBConn {
 
 	/////////////////////////////////////////////////
@@ -11,6 +16,7 @@ public interface IDBConn {
     String USERNAME = "root";
     String USERPWD = "root";
     String DBNAME = "blg";
+    
     
 	/////////////////////////////////////////////////
 	//			      methods

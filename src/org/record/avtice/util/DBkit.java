@@ -16,11 +16,11 @@ public class DBkit {
 	static Connection conn = null;
 	public static Connection getConn() {
 		String DRIVER = "org.gjt.mm.mysql.Driver";
-		String HOSTNAME = "us01-user01.crtks9njytxu.us-east-1.rds.amazonaws.com";
+		String HOSTNAME = "localhost";
 	    String PORT = "3306";
-	    String DBNAME = "d0c863ab20e9b460eb0873b7f588bcddb";
-	    String USERNAME = "uVMkU3nCiW6xs";
-	    String USERPWD = "p1IQnoClOFs1l";
+	    String DBNAME = "lovemie";
+	    String USERNAME = "root";
+	    String USERPWD = "root";
 		
 		if(conn == null) {
 			try {

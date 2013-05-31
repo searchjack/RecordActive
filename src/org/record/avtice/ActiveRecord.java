@@ -40,7 +40,7 @@ import com.jfinal.plugin.activerecord.Page;
  *
  * @param <T>
  */
-public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBConn {
+public class ActiveRecord<T> extends ATable<T> implements IRecordActive<T>, IDBConn {
 	
 	
 	/////////  SQL 半成品  ////////
@@ -54,7 +54,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 	static String SQL_UPDATE;
 	static String SQL_QUERY;
 
-	public RecordActive() {
+	public ActiveRecord() {
 		table = getTableName();
 		fieldNames = new HashSet<String>();
 		fields = getFields();
@@ -86,9 +86,10 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 //		Z - 90
 		StringBuffer tab = new StringBuffer();
 //		System.out.println(getShortName(this.getClass().getName()).toCharArray());
-		char[] beanNameArr = getShortName(this.getClass().getName()).toCharArray();
+//		char[] beanNameArr = getShortName(this.getClass().getName()).toCharArray();
+		String beanNameArr = getShortName(this.getClass().getName());
 		Boolean isTheFirstCh = true;
-		for(Character c : beanNameArr) {
+		for(Character c : beanNameArr.toCharArray()) {
 			if(isTheFirstCh) {
 				isTheFirstCh = false;
 				tab.append(Character.toLowerCase(c));
@@ -114,6 +115,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 				fs.append(",");
 			}
 		}
+		
 		return fs.toString();
 	}
 
@@ -179,9 +181,11 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 		return res;
 	}
 	private void setFieldNames(String fName){
-		fieldNames.add(fName);
+		String fn = ClassReflect.getFieldName(fName);
+		fieldNames.add(fn);
 	}
 	private String getShortName(String longName) {
+//		System.out.println("go --- " + longName);
 		String[] splitN = longName.split("\\.");
 		Integer index = splitN.length - 1;
 		return splitN[index];
@@ -343,7 +347,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 	@Override
 	public Integer save() {
 		
-		System.out.println("b.save();          -- "+this.getClass()+" 344 line");
+//		System.out.println("b.save();          -- "+this.getClass()+" 344 line");
 		
 //		Map<String, Object> values = ClassReflect.getValues(this);
 //		Object bean = ClassReflect.setterVal(this.getClass(), values);
@@ -409,6 +413,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 		return rtns;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public Integer saveOrUpdate(Class<T> bean) {
 		Object id = ClassReflect.getValue(bean, "id");
@@ -629,6 +634,7 @@ public class RecordActive<T> extends ATable<T> implements IRecordActive<T>, IDBC
 	 * @param method
 	 * @return
 	 */
+	@SuppressWarnings("unused")
 	private String existSetMethod(String method) {		
 		String field = null;
 		if(method.startsWith("set")) {
